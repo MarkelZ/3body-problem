@@ -73,6 +73,20 @@ function rel2abs(u)
     return [x1, y1, x2, y2, x3, y3, vx1, vy1, vx2, vy2, vx3, vy3]
 end
 
+get_q(qq, i) = [qq[j][i] for j in 1:6]
+
+function rel2absq(q)
+    x1 = (q[5]-q[1])/3.
+    x2 = (q[1]-q[3])/3.
+    x3 = (q[3]-q[5])/3.
+    y1 = (q[6]-q[2])/3.
+    y2 = (q[2]-q[4])/3.
+    y3 = (q[4]-q[6])/3.
+    return [x1, y1, x2, y2, x3, y3]
+end
+
+to_p(u) = u[1:6]
+
 function visualize(u0, odef, p, T0, Tend, n, m, title="", triangles=false)
     odef = ThreeBodyODEGlobalTR!
     p = nothing
