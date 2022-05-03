@@ -86,14 +86,14 @@ function rel2absq(q)
 end
 
 to_p(u) = u[1:6]
+to_q(u) = to_p(u)
 
-function visualize(u0, odef, p, T0, Tend, n, m, title="", triangles=false)
-    odef = ThreeBodyODEGlobalTR!
+function draw(u0, odef, p, T0, Tend, n, m, title="", triangles=false)
     p = nothing
     n = 256
-    m = 16;
-    sol = IRK8(u0, T0, Tend, n, m, odef, p);
-    uu = sol.u;
+    m = 16
+    sol = IRK8(u0, T0, Tend, n, m, odef, p)
+    uu = sol.u
     pl = plot(title=title, aspect_ratio=1)
 
     uu_abs = [rel2abs(u) for u in uu]
@@ -112,5 +112,5 @@ function visualize(u0, odef, p, T0, Tend, n, m, title="", triangles=false)
     end
 
     display(pl)
-    #return sol.retcode
+    #return sol
 end
