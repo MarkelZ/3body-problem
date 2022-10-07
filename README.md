@@ -10,3 +10,6 @@ https://addi.ehu.es/handle/10810/53290
 
 ## License
 This code is licensed under the terms of the MIT license.
+
+## Poster
+![poster](poster.svg)
